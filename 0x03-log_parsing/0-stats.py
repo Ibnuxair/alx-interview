@@ -27,12 +27,19 @@ try:
         stlist = line.split()
         count += 1
 
-        size += int(stlist[-1])
+        try:
+            size += int(stlist[-1])
+        except:
+            pass
 
-        if stlist[-2] in sts:
-            sts[stlist[-2]] += 1
-
+        try:
+            if stlist[-2] in sts:
+                sts[stlist[-2]] += 1
+        except:
+            pass
     printsts(sts, size)
+
+
 except KeyboardInterrupt:
     printsts(sts, size)
     raise
